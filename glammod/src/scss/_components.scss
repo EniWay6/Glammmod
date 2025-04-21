@@ -1,0 +1,49 @@
+// Навбар з Figma
+.navbar {
+    background: #000;
+    border-radius: 50px;       // Овальна форма
+    padding: 12px 40px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: 'Space Grotesk', sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    // Логотип (2 кольори)
+    &__logo {
+      font-size: 28px;
+      font-weight: 700;
+      &-green { color: #4CAF50; }  // Зелений
+      &-white { color: #FFFFFF; }  // Білий
+    }
+  
+    // Меню
+    &__menu {
+      display: flex;
+      gap: 40px;                 // Відступи між пунктами
+    }
+  
+    &__link {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s;
+      
+      &:hover {
+        color: #4CAF50;          // Зелений при наведенні
+      }
+    }
+  
+    // Копірайт
+    &__copyright {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+    }
+  }
