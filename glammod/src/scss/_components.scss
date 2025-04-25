@@ -106,7 +106,7 @@
       margin-top: 2rem;
   
       div h3 {
-        font-size: 2.3rem;
+        font-size: 3.5rem;
         font-weight: 700;
       }
   
@@ -187,7 +187,7 @@
   }
   
   .btn {
-    padding: 0.8rem 1.6rem;
+    padding: 0.8rem 3rem;
     border: none;
     border-radius: 30px;
     font-weight: 600;
@@ -328,4 +328,47 @@
   }
   
   
+  .carousel {
+    background-color: #0d1b2a;
+    overflow: hidden;
+    padding: 32px 0;
+    margin: 0 60px;
+    border-radius: 40px;
+  
+    .carousel-track {
+      display: flex;
+      width: 200%; 
+      animation: scroll 30s linear infinite;
+    }
+  
+    .carousel-content {
+      display: flex;
+      align-items: center;
+    }
+  
+    .carousel-item {
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 30px; 
+      margin: 0 40px;
+      white-space: nowrap;
+    }
+  
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: #cfd8dc;
+      border-radius: 50%;
+      margin: 0 20px;
+    }
+  
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  }
   
