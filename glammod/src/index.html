@@ -5,29 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glammod</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <!-- Овальний чорний навбар -->
-  <header class="navbar">
-    <div class="navbar__container">
-      <!-- Лого Glammod (2 кольори) -->
-      <div class="navbar__logo">
-        <span class="navbar__logo-green">Glam</span>
-        <span class="navbar__logo-white">mod</span>
+  <div class="page-section">
+    <!-- Овальний чорний навбар -->
+    <header class="navbar">
+      <div class="navbar__container">
+        <!-- Лого Glammod (2 кольори) -->
+        <div class="navbar__logo">
+          <span class="navbar__logo-green">Glam</span>
+          <span class="navbar__logo-white">mod</span>
+        </div>
+
+        <!-- Основне меню -->
+        <nav class="navbar__menu">
+          <a href="#" class="navbar__link">About</a>
+          <a href="#" class="navbar__link">Services</a>
+          <a href="#" class="navbar__link">Products</a>
+          <a href="#" class="navbar__link">Testimonials</a>
+        </nav>
+
+        <!-- Копірайт -->
+        <div class="navbar__copyright">©2023 Fashionproduct</div>
+      </div>
+    </header>
+  <section class="hero">
+    <div class="container hero__wrapper">
+      <div class="hero__left">
+        <h1 class="hero__title">Find Your<br><span>Fashion Heaven</span><br>Today</h1>
+        <p class="hero__description">
+          Dress to impress with our latest collection, curated for trendsetters seeking chic and timeless style.
+          Elevate your wardrobe today!
+        </p>
+        <div class="hero__buttons">
+          <button class="btn btn--primary">Buy Now</button>
+          <button class="btn btn--circle">
+            <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
+        <div class="hero__stats">
+          <div><h3>20+</h3><p>Years of Experience</p></div>
+          <div><h3>21K+</h3><p>Happy Customers</p></div>
+          <div><h3>150+</h3><p>Product Brand</p></div>
+        </div>
+      </div>
+      <div class="hero__right">
+        <div class="hero__row">
+          <div class="hero__award">
+            <i class="fa-solid fa-play"></i>
+            <p>FASHION AWWARD<br><strong>WINNER</strong></p>
+          </div>
+          <div class="hero__model">
+            <img src="img/model.jpg" alt="Model" />
+          </div>
+        </div>
+        <div class="hero__circle">
+          <img src="img/shoe.png" alt="Shoe" />
+        </div>
+        <div class="hero__labels">
+          <span class="label purple">
+            <i class="fa-solid fa-gem"></i> Premium Quality Materials
+          </span>
+          <span class="label green">
+            <i class="fa-solid fa-star"></i> Top Products This Month
+          </span>
+        </div>
       </div>
       
-      <!-- Основне меню -->
-      <nav class="navbar__menu">
-        <a href="#" class="navbar__link">About</a>
-        <a href="#" class="navbar__link">Services</a>
-        <a href="#" class="navbar__link">Products</a>
-        <a href="#" class="navbar__link">Testimonials</a>
-      </nav>
-      
-      <!-- Копірайт праворуч -->
-      <div class="navbar__copyright">©2023 Fashionproduct</div>
+      </div>
     </div>
-  </header>
+  </section>
+  
+  
 </body>
 </html>

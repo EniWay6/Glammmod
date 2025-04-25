@@ -16,6 +16,17 @@ const paths = {
   }
 };
 
+const images = {
+  src: 'src/img/**/*.{jpg,jpeg,png,gif,svg,webp}',
+  dest: 'dist/img/'
+};
+
+function img() {
+  return src(images.src)
+    .pipe(dest(images.dest))
+    .pipe(browserSync.stream());
+}
+
 // Компіляція SCSS → CSS
 function styles() {
   return src(paths.styles.src)
