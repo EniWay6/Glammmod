@@ -4,7 +4,6 @@ const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 
-// Шляхи
 const paths = {
   html: {
     src: 'src/index.html',
@@ -27,7 +26,6 @@ function img() {
     .pipe(browserSync.stream());
 }
 
-// Компіляція SCSS → CSS
 function styles() {
   return src(paths.styles.src)
     .pipe(sass().on('error', sass.logError))
@@ -36,14 +34,12 @@ function styles() {
     .pipe(browserSync.stream());
 }
 
-// Копіювання HTML
 function html() {
   return src(paths.html.src)
     .pipe(dest(paths.html.dest))
     .pipe(browserSync.stream());
 }
 
-// Локальний сервер
 function serve() {
   browserSync.init({
     server: {
@@ -53,12 +49,13 @@ function serve() {
 
   watch('src/scss/**/*.scss', styles);
   watch('src/*.html', html);
+  watch('src/img/**/*.{jpg,jpeg,png,gif,svg,webp}', img); 
 }
 
-// Експорт тасків
 exports.styles = styles;
 exports.html = html;
+exports.img = img; 
 exports.default = series(
-  parallel(styles, html),
+  parallel(styles, html, img), 
   serve
 );
