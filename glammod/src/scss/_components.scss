@@ -18,6 +18,8 @@
     &__logo {
       font-size: 28px;
       font-weight: 700;
+      display: flex;
+      gap: 0px;    
       &-green { color: #BBF6BE; }  
       &-white { color: #FFFFFF; }  
     }
@@ -185,11 +187,12 @@
   }
   
   .btn {
-    padding: 0.8rem 3rem;
+    padding: 1.4rem 5rem;
     border: none;
     border-radius: 30px;
     font-weight: 600;
     cursor: pointer;
+
   
     &--primary {
       background: #000;
@@ -202,17 +205,19 @@
     }
   
     &--circle {
-      width: 48px;
-      height: 48px;
+      width: 60px;
+      height: 60px;
       background: #fff;
       border: 2px solid #eee;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      border-radius: 50%;
   
       i {
-        color: #111;
+        color: #000000;
+        transform: rotate(320deg);
       }
     }
   }
@@ -240,8 +245,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 220px;
-      height: 300px;
+      width: 279px;
+      height: 438px;
       justify-content: center;
       text-align: center;
       font-size: 0.85rem;
@@ -258,8 +263,8 @@
       border-top-right-radius: 60px;
       border-bottom-right-radius: 60px;
       overflow: hidden;
-      width: 220px;
-      height: 300px;
+      width: 279px;
+      height: 505px;
   
       img {
         width: 100%;
@@ -570,24 +575,31 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     padding: 20px;
     text-align: center; 
+    height: 300px;
     display: flex;
     flex-direction: column; 
   }
   
   .product-card img {
     max-width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 6px;
+    max-height: 100%;
     object-fit: contain;
-    max-height: 200px;
+    border-radius: 6px;
   }
   
+  .product-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+
   .product-info {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     padding-top: 10px;
+    gap: 10px;
   }
   
   .product-info h3 {
@@ -598,7 +610,7 @@
   }
   
   .product-info .price {
-    color: #007bff;
+    color: #525252;
     font-weight: bold;
     font-size: 1.1em;
     text-align: right;
@@ -641,7 +653,7 @@
       font-size: 1em;
     }
   }
-
+  
 /* page 5 */
   .testimonials-section {
     background-color: #BBF6BE; 
@@ -783,120 +795,139 @@
   }
 
 /* page 6*/
+.hero-section {
+  background-image: url('/img/hero_background.png'); 
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 90px;
+  text-align: center;
+  border-radius: 50px;
+  margin: 20px auto;
+  max-width: 1200px;
+  position: relative; 
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); 
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative; 
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content .now {
+  color: #a7f0ba; 
+}
+
+.hero-content p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  color: #eee;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy-now-btn {
+  background-color: #a7f0ba;
+  color: #333;
+  font-weight: bold;
+  padding: 22px 50px;
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  margin-right: 15px;
+}
+
+.buy-now-btn:hover {
+  background-color: #8ee9a0;
+}
+
+.explore-btn {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.5em;
+  transition: background-color 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.explore-btn i {
+  margin-left: 5px; 
+  transform: rotate(320deg);
+}
+
+@media (max-width: 768px) {
   .hero-section {
-    background-image: url('img/hero_background.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-color: #d0d0d0; 
-    color: #7c7c7c;
-    padding: 90px;
-    text-align: center;
-    border-radius: 50px;
-    margin: 20px auto;
-    max-width: 1200px;
-    position: relative; 
+    padding: 100px 20px;
   }
-  
-  .hero-content {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
+
   .hero-content h1 {
-    font-size: 3.5em;
-    font-weight: bold;
-    margin-bottom: 20px;
-    line-height: 1.2;
+    font-size: 2.8em;
+    margin-bottom: 15px;
   }
-  
-  .hero-content .now {
-    color: #a7f0ba; 
-  }
-  
+
   .hero-content p {
-    font-size: 1.1em;
-    line-height: 1.7;
-    margin-bottom: 30px;
-    color: #eee;
+    font-size: 1em;
+    margin-bottom: 20px;
   }
-  
+
   .hero-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
   }
-  
+
   .buy-now-btn {
-    background-color: #a7f0ba;
-    color: #333;
-    font-weight: bold;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-    margin-right: 15px;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
-  
-  .buy-now-btn:hover {
-    background-color: #8ee9a0;
-  }
-  
+
   .explore-btn {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 1.5em;
-    transition: background-color 0.3s ease;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3em;
   }
-  
-  .explore-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-  
-  .explore-btn i {
-    margin-left: 5px; 
-  }
-  
-  @media (max-width: 768px) {
-    .hero-section {
-      padding: 100px 20px;
-    }
-  
-    .hero-content h1 {
-      font-size: 2.8em;
-      margin-bottom: 15px;
-    }
-  
-    .hero-content p {
-      font-size: 1em;
-      margin-bottom: 20px;
-    }
-  
-    .hero-buttons {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  
-    .buy-now-btn {
-      margin-right: 0;
-      margin-bottom: 10px;
-    }
-  
-    .explore-btn {
-      width: 45px;
-      height: 45px;
-      font-size: 1.3em;
-    }
-  }
+}
+
 
 /* футер */
   .site-footer {
@@ -962,7 +993,7 @@
   
   .footer-column.newsletter input[type="email"] {
     flex-grow: 1;
-    background-color: #222;
+    background-color: #ffffff;
     color: #eee;
     border: none;
     padding: 10px 15px;

@@ -1,12 +1,11 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-const cleanCSS = require('gulp-clean-css');
-const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 
+// Шляхи до файлів
 const paths = {
   html: {
-    src: 'src/index.html',
+    src: 'src/*.html',
     dest: 'dist/'
   },
   styles: {
@@ -15,47 +14,40 @@ const paths = {
   }
 };
 
-const images = {
-  src: 'src/img/**/*.{jpg,jpeg,png,gif,svg,webp}',
-  dest: 'dist/img/'
-};
-
-function img() {
-  return src(images.src)
-    .pipe(dest(images.dest))
-    .pipe(browserSync.stream());
-}
-
-function styles() {
-  return src(paths.styles.src)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(cleanCSS())
-    .pipe(dest(paths.styles.dest))
-    .pipe(browserSync.stream());
-}
-
+// Функція для роботи з HTML
 function html() {
   return src(paths.html.src)
-    .pipe(dest(paths.html.dest))
-    .pipe(browserSync.stream());
+    .pipe(dest(paths.html.dest));
 }
 
+// Функція для роботи зі стилями
+function styles() {
+  return src(paths.styles.src)
+    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError)) // Красивий формат (НЕ мінімізований)
+    .pipe(dest(paths.styles.dest))
+    .pipe(browserSync.stream()); // Автооновлення стилів
+}
+
+// Сервер + слідкування за файлами
 function serve() {
   browserSync.init({
     server: {
-      baseDir: 'dist/'
+      baseDir: ['dist', 'src'] // <<< Головне! Доступ і до dist, і до src (для картинок)
     }
   });
 
-  watch('src/scss/**/*.scss', styles);
-  watch('src/*.html', html);
-  watch('src/img/**/*.{jpg,jpeg,png,gif,svg,webp}', img); 
+  watch('src/scss/**/*.scss', series(styles));
+  watch('src/*.html', series(html));
+  watch('dist/*.html').on('change', browserSync.reload);
 }
 
-exports.styles = styles;
+// Експортуємо задачі
 exports.html = html;
-exports.img = img; 
+exports.styles = styles;
+exports.serve = serve;
+
+// Основна задача за замовчуванням
 exports.default = series(
-  parallel(styles, html, img), 
+  parallel(html, styles),
   serve
 );
