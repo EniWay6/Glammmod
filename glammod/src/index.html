@@ -16,7 +16,8 @@
           <span class="navbar__logo-green">Glam</span>
           <span class="navbar__logo-white">mod</span>
         </div>
-
+        <div class="navbar__burger" id="burger">&#9776;</div>
+        <div class="navbar__menu" id="navMenu">
 
         <nav class="navbar__menu">
           <a href="#" class="navbar__link">About</a>
@@ -323,4 +324,9 @@
   </footer>
 
 </body>
+<script>
+  document.getElementById('burger').addEventListener('click', function () {
+    document.getElementById('navMenu').classList.toggle('navbar__menu--active');
+  });
+</script>
 </html>
