@@ -138,37 +138,52 @@
       <div class="feature-info">
         <h3>FEATURED PRODUCTS</h3>
         <p>Showcasing specific products, bestsellers, or seasonal items to attract attention.</p>
+        <p> to attract attention.</p>
       </div>
       <div class="feature-arrow">→</div>
+      <div class="feature-image">
+        <img src="img/featured.png" alt="Featured Product">
+      </div>
     </div>
   
-    <div class="feature-item dark-feature">
+    <div class="feature-item">
       <div class="feature-info">
         <h3>PRODUCT DETAILS</h3>
-        <p>Providing detailed information about each product, including images, descriptions, prices, and available sizes.</p>
+        <p>Providing detailed information about each product,</p>
+        <p> including images, descriptions, prices, and available sizes.</p>
       </div>
-      <div class="feature-image-placeholder">
-        <img src="src/img/product_details_placeholder.jpg" alt="Product Details">
+      <div class="feature-arrow">→</div>
+      <div class="feature-image">
+        <img src="img/product_details_placeholder.png" alt="Product Details">
       </div>
-      <div class="feature-arrow green-arrow">→</div>
     </div>
   
     <div class="feature-item">
       <div class="feature-info">
         <h3>PROMOTIONS AND DISCOUNTS</h3>
-        <p>Highlighting ongoing sales, discounts, or special offers to encourage purchases.</p>
+        <p>Highlighting ongoing sales, discounts, or special offers to</p>
+        <p>encourage purchases</p>
       </div>
       <div class="feature-arrow">→</div>
+      <div class="feature-image">
+        <img src="img/promotions.png" alt="Discounts">
+      </div>
     </div>
   
     <div class="feature-item">
       <div class="feature-info">
         <h3>CONTACT INFORMATION</h3>
-        <p>Displaying contact details and customer support information for inquiries or assistance.</p>
+        <p>Displaying contact details and customer support</p>
+        <p> information for inquiries or assistance.</p>
       </div>
       <div class="feature-arrow">→</div>
+      <div class="feature-image">
+        <img src="img/contact.png" alt="Contact Info">
+      </div>
     </div>
   </section>
+  
+  
 
   <section class="hot-selling-section">
     <h2>OUR HOT SELLING PRODUCTS</h2>
@@ -325,8 +340,29 @@
 
 </body>
 <script>
-  document.getElementById('burger').addEventListener('click', function () {
-    document.getElementById('navMenu').classList.toggle('navbar__menu--active');
+  document.addEventListener('DOMContentLoaded', function() {
+  const burger = document.querySelector('.navbar__burger');
+  const menu = document.querySelector('.navbar__menu');
+  
+  burger.addEventListener('click', function() {
+    menu.classList.toggle('navbar__menu--active');
+    burger.classList.toggle('active');
+    
+    // Додаємо обробник кліку поза меню
+    if (menu.classList.contains('navbar__menu--active')) {
+      document.addEventListener('click', closeMenuOnClickOutside);
+    } else {
+      document.removeEventListener('click', closeMenuOnClickOutside);
+    }
   });
+  
+  function closeMenuOnClickOutside(e) {
+    if (!menu.contains(e.target) && e.target !== burger) {
+      menu.classList.remove('navbar__menu--active');
+      burger.classList.remove('active');
+      document.removeEventListener('click', closeMenuOnClickOutside);
+    }
+  }
+});
 </script>
 </html>
