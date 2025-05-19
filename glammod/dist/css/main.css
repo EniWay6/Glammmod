@@ -364,7 +364,7 @@ body {
   .navbar__menu {
     display: none;
     width: 100%;
-    order: 3; /* Меню під лого та бургером */
+    order: 3;
     margin-top: 15px;
     background: transparent;
     flex-direction: column;
@@ -386,7 +386,7 @@ body {
   }
   .navbar__burger {
     display: block;
-    order: 2; /* Бургер справа від лого */
+    order: 2;
     margin-left: auto;
     background: none;
     border: none;
@@ -396,9 +396,9 @@ body {
     padding: 0;
   }
   .hero {
-    padding: 2rem 1rem;
+    padding: 10px;
     border-radius: 25px;
-    margin: 1rem auto;
+    margin: 10px 15px;
     width: calc(100% - 30px);
   }
   .hero__wrapper {
@@ -935,15 +935,6 @@ body {
   font-size: 1em;
 }
 
-.testimonial-card .rating .star-half::after {
-  content: "★";
-  position: absolute;
-  left: 0;
-  width: 50%;
-  overflow: hidden;
-  color: #ffc107;
-}
-
 .testimonial-card .rating .star {
   margin: 0 2px;
 }
@@ -961,11 +952,26 @@ body {
     margin-bottom: 30px;
   }
   .testimonials-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .testimonials-grid::-webkit-scrollbar {
+    display: none;
   }
   .testimonial-card {
-    padding: 20px;
+    scroll-snap-align: start;
+    min-width: calc(75% - 20px);
+    flex: 0 0 auto;
+    padding: 10px;
   }
   .testimonial-card img {
     width: 70px;
@@ -981,8 +987,15 @@ body {
     margin-bottom: 8px;
   }
   .testimonial-card .quote {
-    font-size: 0.95em;
-    margin-bottom: 15px;
+    word-break: break-word;
+    hyphens: auto;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    font-size: 0.7em;
+    line-height: 1.3;
+    display: block;
+    max-height: 60px;
+    overflow: hidden;
   }
   .testimonial-card .rating {
     font-size: 0.9em;
